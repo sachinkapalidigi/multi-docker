@@ -51,3 +51,15 @@ services:
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+
+deploy:
+  provider: elasticbeanstalk
+  region: ap-south-1
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-ap-south-1-169835060998
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
